@@ -17,13 +17,17 @@ basics:
   url: https://jordan.example.com
   location: Seattle, WA
 sections:
+  - id: staff-scope
+    kind: custom
+    title: Staff-Level Scope
+    priority: 98
   - id: experience
     kind: experience
     title: Experience
     priority: 100
   - id: projects
     kind: projects
-    title: Selected Work
+    title: Selected Staff Impact
     priority: 75
   - id: education
     kind: education
@@ -39,6 +43,7 @@ variants:
     pageTarget: two-page
     density: standard
     sectionOrder:
+      - staff-scope
       - experience
       - projects
       - education
@@ -47,7 +52,41 @@ variants:
 
 # Jordan Rivera
 
-Staff engineer focused on durable product platforms, reliable delivery systems, and high-trust technical leadership.
+Staff engineer for product-platform organizations: turns ambiguous cross-team problems into durable architecture, operating models, and accountable execution.
+
+## Staff-Level Scope
+
+### Technical Direction
+
+```resume-foundry
+id: staff-scope-technical-direction
+subtitle: Org-level platform strategy
+priority: 100
+tags:
+  - strategy
+  - architecture
+```
+
+Accountable for engineering direction across six product teams and the shared workflow platform beneath them.
+
+- Set architecture roadmaps that connected product workflows, data contracts, release operations, and ownership boundaries.
+- Converted recurring incidents and migration risk into platform standards, design review practices, and launch readiness gates.
+
+### Engineering Leverage
+
+```resume-foundry
+id: staff-scope-engineering-leverage
+subtitle: Cross-team leadership
+priority: 95
+tags:
+  - mentorship
+  - operating-model
+```
+
+Creates leverage by improving how senior engineers make decisions, sequence work, and own production systems.
+
+- Facilitated Staff/Senior review forums and mentored engineers into independent technical ownership.
+- Reframed platform investments in product terms so leaders could trade off velocity, reliability, and compliance risk.
 
 ## Experience
 
@@ -69,9 +108,9 @@ tags:
 
 Set engineering direction for the shared workflow platform used by product, data, and operations teams.
 
-- Defined platform strategy for multi-product engineering workflows.
+- Owned architecture decisions for a platform spanning six product lines and more than 20 services.
 - Led a 14-engineer migration from bespoke job runners to an observable orchestration service.
-- Reduced incident frequency by introducing typed contracts, ownership reviews, and rollback playbooks.
+- Reduced repeated incidents by introducing typed contracts, ownership reviews, and rollback playbooks.
 - Coached senior engineers through architecture reviews, execution planning, and operational readiness.
 
 ### Atlas Cloud
@@ -139,7 +178,7 @@ Built collaboration and reporting tools for enterprise analytics customers.
 - Introduced contract tests for data exports that protected enterprise reporting workflows.
 - Supported early hiring loops, onboarding documentation, and technical design standards.
 
-## Selected Work
+## Selected Staff Impact
 
 ### Delivery Operating Model
 
@@ -154,7 +193,7 @@ tags:
 
 Codified planning, architecture review, launch readiness, and incident follow-up practices for cross-team programs.
 
-- Helped teams make dependency risk, reliability investment, and ownership expectations visible before delivery.
+- Made dependency risk, reliability investment, and ownership expectations visible before delivery commitments.
 
 ### Platform Migration Toolkit
 

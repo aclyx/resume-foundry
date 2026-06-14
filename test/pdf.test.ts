@@ -82,9 +82,11 @@ describe("PDF export", () => {
       { height: 792, width: 612 },
     ]);
     expect(info.selectableText).toContain("Jordan Rivera");
+    expect(info.text).toContain("STAFF-LEVEL SCOPE");
     expect(info.text).toContain("EXPERIENCE");
+    expect(info.text).toContain("SELECTED STAFF IMPACT");
     expect(info.text).toContain("SKILLS");
-    expect(info.text).toContain("• Defined platform strategy for multi-product engineering workflows.");
+    expect(info.text).toContain("• Set architecture roadmaps that connected product workflows");
     expect(info.links).toContain("mailto:jordan.rivera@example.com");
     expect(info.links).toContain("https://jordan.example.com/");
   });
