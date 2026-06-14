@@ -280,9 +280,12 @@ function renderSection(section: ResumeSection): string {
 
 function renderEntry(entry: ResumeEntry): string {
   const meta = renderEntryMeta(entry);
+  const entryHeaderClass = entry.url
+    ? "resume-entry-header resume-entry-header--with-link"
+    : "resume-entry-header";
 
   return `<article id="${escapeAttribute(entry.id)}" class="resume-entry"${entry.density ? ` data-density="${entry.density}"` : ""}>
-          <header class="resume-entry-header">
+          <header class="${entryHeaderClass}">
             <div>
               <h3>${escapeHtml(entry.title)}</h3>
               ${meta ? `<p class="resume-entry-meta">${meta}</p>` : ""}
@@ -540,6 +543,8 @@ function renderThemeCss({ theme, density, pageSize, pageTarget }: ResolvedHtmlOp
         list-style-position: outside;
       }
 
+${theme.name === "staff-software-engineering" ? renderStaffThemeCss() : ""}
+
       @media screen {
         body {
           background: var(--rf-screen-background);
@@ -566,6 +571,169 @@ function renderThemeCss({ theme, density, pageSize, pageTarget }: ResolvedHtmlOp
           padding: 0;
         }
       }`;
+}
+
+function renderStaffThemeCss(): string {
+  return `      .resume[data-theme="staff-software-engineering"] {
+        border-top: 1.5pt solid var(--rf-color-text);
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-header {
+        align-items: start;
+        border-bottom: 0.7pt solid var(--rf-color-rule);
+        column-gap: 0.28in;
+        grid-template-columns: minmax(0, 1fr) auto;
+        margin-bottom: 0;
+        padding-bottom: 0.11in;
+        row-gap: 0.025in;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-header h1 {
+        grid-column: 1;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-label {
+        color: var(--rf-color-text);
+        font-size: 10.2pt;
+        font-weight: var(--rf-medium-weight);
+        grid-column: 1;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-contact {
+        display: grid;
+        gap: 0.018in;
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        justify-items: end;
+        line-height: 1.22;
+        text-align: right;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-contact .resume-separator {
+        display: none;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-summary {
+        color: var(--rf-color-text);
+        font-weight: var(--rf-medium-weight);
+        grid-column: 1 / -1;
+        max-width: 6.55in;
+      }
+
+      .resume[data-theme="staff-software-engineering"] h2 {
+        align-items: center;
+        border-bottom: 0;
+        display: grid;
+        gap: 0.09in;
+        grid-template-columns: auto 1fr;
+        padding-bottom: 0;
+      }
+
+      .resume[data-theme="staff-software-engineering"] h2::after {
+        border-top: var(--rf-section-rule-width) var(--rf-section-rule-style) var(--rf-color-rule);
+        content: "";
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-section > h2 + * {
+        margin-top: 0.055in;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-entry-header {
+        display: grid;
+        gap: 0.08in;
+        grid-template-columns: minmax(0, 1fr) auto;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-entry-header > div {
+        align-items: baseline;
+        column-gap: 0.14in;
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-entry-meta {
+        justify-self: end;
+        text-align: right;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-entry-header--with-link > div {
+        display: block;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-entry-header--with-link .resume-entry-meta {
+        justify-self: start;
+        margin-top: 0.012in;
+        text-align: left;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-entry p {
+        color: var(--rf-color-text);
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-bullet {
+        color: var(--rf-color-muted);
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-highlights li {
+        gap: 0.045in;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-section--skills .resume-entry {
+        align-items: start;
+        border-top: 0;
+        display: grid;
+        grid-template-columns: 1.15in minmax(0, 1fr);
+        column-gap: 0.16in;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-section--skills .resume-entry + .resume-entry {
+        margin-top: 0.045in;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-skill-group h3 {
+        color: var(--rf-color-muted);
+        font-size: var(--rf-small-size);
+        text-transform: uppercase;
+      }
+
+      .resume[data-theme="staff-software-engineering"] .resume-skills-list {
+        columns: unset;
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        margin-top: 0;
+      }
+
+      @media screen and (max-width: 560px) {
+        .resume[data-theme="staff-software-engineering"] .resume-header,
+        .resume[data-theme="staff-software-engineering"] .resume-entry-header,
+        .resume[data-theme="staff-software-engineering"] .resume-entry-header > div,
+        .resume[data-theme="staff-software-engineering"] .resume-section--skills .resume-entry,
+        .resume[data-theme="staff-software-engineering"] .resume-skills-list {
+          display: block;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-contact,
+        .resume[data-theme="staff-software-engineering"] .resume-entry-meta {
+          justify-items: start;
+          text-align: left;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-contact .resume-separator {
+          display: inline;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-entry-meta {
+          justify-self: start;
+          width: 100%;
+        }
+      }
+
+      @media screen {
+        .resume[data-theme="staff-software-engineering"] {
+          min-height: var(--rf-page-height);
+        }
+      }
+`;
 }
 
 function formatPhoneHref(phone: string): string {
