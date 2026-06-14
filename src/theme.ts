@@ -64,12 +64,19 @@ export interface ResumeDensityTokens {
   paragraphGap: string;
 }
 
+export interface ResumeSurfaceTokens {
+  screenBackground: string;
+  screenPadding: string;
+  screenShadow: string;
+}
+
 export interface ResumeThemeTokens {
   typography: ResumeTypographyTokens;
   spacing: ResumeSpacingTokens;
   color: ResumeColorTokens;
   rules: ResumeRuleTokens;
   density: Record<ResumeDensity, ResumeDensityTokens>;
+  surface: ResumeSurfaceTokens;
 }
 
 export interface ResumeTheme {
@@ -172,6 +179,87 @@ export const baselineResumeTheme: ResumeTheme = {
         listGap: "0.04in",
         paragraphGap: "0.065in",
       },
+    },
+    surface: {
+      screenBackground: "#f3f4f6",
+      screenPadding: "24px",
+      screenShadow: "0 12px 30px rgb(15 23 42 / 0.12)",
+    },
+  },
+};
+
+export const staffSoftwareEngineeringTheme: ResumeTheme = {
+  name: "staff-software-engineering",
+  tokens: {
+    typography: {
+      fontFamily:
+        "Aptos, Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif",
+      baseSize: "9.8pt",
+      smallSize: "8.2pt",
+      h1Size: "18pt",
+      h2Size: "8.8pt",
+      h3Size: "9.9pt",
+      lineHeight: "1.28",
+      headingLineHeight: "1.08",
+      regularWeight: 400,
+      mediumWeight: 600,
+      boldWeight: 700,
+      letterSpacing: "0",
+    },
+    spacing: {
+      headerGap: "0.11in",
+      contactGap: "0.055in",
+      sectionGap: "0.135in",
+      sectionTitleGap: "0.045in",
+      itemGap: "0.072in",
+      itemHeaderGap: "0.025in",
+      paragraphGap: "0.026in",
+      listGap: "0.012in",
+      listIndent: "0.14in",
+    },
+    color: {
+      background: "#ffffff",
+      text: "#111111",
+      muted: "#404040",
+      subtle: "#737373",
+      accent: "#262626",
+      link: "#1f2937",
+      rule: "#b8b8b8",
+    },
+    rules: {
+      sectionWidth: "0.55pt",
+      sectionStyle: "solid",
+      itemWidth: "0",
+      itemStyle: "solid",
+      radius: "0",
+    },
+    density: {
+      compact: {
+        fontScale: "0.96",
+        sectionGap: "0.095in",
+        itemGap: "0.052in",
+        listGap: "0.008in",
+        paragraphGap: "0.02in",
+      },
+      standard: {
+        fontScale: "1",
+        sectionGap: "0.125in",
+        itemGap: "0.072in",
+        listGap: "0.012in",
+        paragraphGap: "0.026in",
+      },
+      spacious: {
+        fontScale: "1.025",
+        sectionGap: "0.16in",
+        itemGap: "0.105in",
+        listGap: "0.022in",
+        paragraphGap: "0.04in",
+      },
+    },
+    surface: {
+      screenBackground: "#ffffff",
+      screenPadding: "0",
+      screenShadow: "none",
     },
   },
 };

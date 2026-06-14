@@ -55,17 +55,25 @@ pnpm resume-foundry parse fixtures/one-page.resume.md --format markdown
 ## HTML Themes
 
 ```ts
-import { baselineResumeTheme, renderHtml } from "resume-foundry";
+import { baselineResumeTheme, renderHtml, staffSoftwareEngineeringTheme } from "resume-foundry";
 
 const html = renderHtml(resume, {
   theme: baselineResumeTheme,
   variant: "one-page",
   pageSize: "letter",
 });
+
+const staffHtml = renderHtml(resume, {
+  theme: staffSoftwareEngineeringTheme,
+  variant: "two-page",
+  pageSize: "letter",
+});
 ```
 
 The baseline theme renders semantic HTML with selectable text, accessible links, `@page`
 print CSS, page-size controls, and compact/standard/spacious density tokens.
+The Staff software engineering theme is dense, restrained, grayscale-forward, and optimized
+for ATS-visible print/PDF output.
 
 ## Development
 
