@@ -86,8 +86,8 @@ describe("HTML presentation themes", () => {
 
     expect(html).toContain('data-theme="staff-software-engineering"');
     expect(html).toContain('data-density="compact"');
-    expect(html).toContain("--rf-screen-shadow: 0 18px 50px rgb(17 17 17 / 0.12)");
-    expect(html).toContain("--rf-color-accent: #262626");
+    expect(html).toContain("--rf-screen-shadow: 0 22px 55px rgb(17 24 39 / 0.14)");
+    expect(html).toContain("--rf-color-accent: #242424");
     expect(html).not.toContain("<img");
     expect(html).not.toContain("<canvas");
     expect(html).not.toContain("gradient");

@@ -14,41 +14,41 @@ exports[`HTML presentation themes > renders a dense Staff software engineering o
         --rf-page-height: 11in;
         --rf-page-margin: 0.55in;
         --rf-font-family: Aptos, Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        --rf-font-size: 10pt;
-        --rf-small-size: 8.35pt;
-        --rf-h1-size: 21pt;
-        --rf-h2-size: 8.7pt;
-        --rf-h3-size: 10.05pt;
-        --rf-line-height: 1.3;
+        --rf-font-size: 9.65pt;
+        --rf-small-size: 8.15pt;
+        --rf-h1-size: 24pt;
+        --rf-h2-size: 7.6pt;
+        --rf-h3-size: 9.8pt;
+        --rf-line-height: 1.34;
         --rf-heading-line-height: 1.08;
         --rf-regular-weight: 400;
         --rf-medium-weight: 600;
         --rf-bold-weight: 700;
         --rf-letter-spacing: 0;
         --rf-color-background: #ffffff;
-        --rf-color-text: #111111;
-        --rf-color-muted: #404040;
-        --rf-color-subtle: #737373;
-        --rf-color-accent: #262626;
-        --rf-color-link: #1f2937;
-        --rf-color-rule: #b8b8b8;
+        --rf-color-text: #171717;
+        --rf-color-muted: #494949;
+        --rf-color-subtle: #747474;
+        --rf-color-accent: #242424;
+        --rf-color-link: #252a32;
+        --rf-color-rule: #d5d5d0;
         --rf-header-gap: 0.11in;
         --rf-contact-gap: 0.055in;
         --rf-section-title-gap: 0.045in;
         --rf-list-indent: 0.14in;
-        --rf-section-gap: 0.1in;
-        --rf-item-gap: 0.055in;
+        --rf-section-gap: 0.12in;
+        --rf-item-gap: 0.06in;
         --rf-list-gap: 0.01in;
         --rf-paragraph-gap: 0.022in;
-        --rf-density-font-scale: 0.955;
+        --rf-density-font-scale: 0.96;
         --rf-section-rule-width: 0.55pt;
         --rf-section-rule-style: solid;
         --rf-item-rule-width: 0;
         --rf-item-rule-style: solid;
         --rf-rule-radius: 0;
-        --rf-screen-background: #f3f3f0;
-        --rf-screen-padding: 32px 24px;
-        --rf-screen-shadow: 0 18px 50px rgb(17 17 17 / 0.12);
+        --rf-screen-background: #eef0f2;
+        --rf-screen-padding: 36px 24px;
+        --rf-screen-shadow: 0 22px 55px rgb(17 24 39 / 0.14);
       }
 
       @page {
@@ -206,26 +206,28 @@ exports[`HTML presentation themes > renders a dense Staff software engineering o
       }
 
       .resume[data-theme="staff-software-engineering"] {
-        border-top: 1.5pt solid var(--rf-color-text);
+        border-top: 2pt solid var(--rf-color-text);
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-header {
         align-items: start;
-        border-bottom: 0.7pt solid var(--rf-color-rule);
-        column-gap: 0.28in;
+        border-bottom: 0.65pt solid var(--rf-color-rule);
+        column-gap: 0.34in;
         grid-template-columns: minmax(0, 1fr) auto;
         margin-bottom: 0;
-        padding-bottom: 0.11in;
-        row-gap: 0.025in;
+        padding-bottom: 0.15in;
+        row-gap: 0.026in;
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-header h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: var(--rf-bold-weight);
         grid-column: 1;
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-label {
         color: var(--rf-color-text);
-        font-size: 10.2pt;
+        font-size: 9.7pt;
         font-weight: var(--rf-medium-weight);
         grid-column: 1;
       }
@@ -248,7 +250,9 @@ exports[`HTML presentation themes > renders a dense Staff software engineering o
         color: var(--rf-color-text);
         font-weight: var(--rf-medium-weight);
         grid-column: 1 / -1;
-        max-width: 6.55in;
+        line-height: 1.28;
+        max-width: 6.35in;
+        padding-top: 0.04in;
       }
 
       .resume[data-theme="staff-software-engineering"] h2 {
@@ -266,7 +270,7 @@ exports[`HTML presentation themes > renders a dense Staff software engineering o
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-section > h2 + * {
-        margin-top: 0.055in;
+        margin-top: 0.06in;
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-entry-header {
@@ -334,7 +338,89 @@ exports[`HTML presentation themes > renders a dense Staff software engineering o
         margin-top: 0;
       }
 
-      @media screen and (max-width: 560px) {
+      @media print, screen and (min-width: 600px) {
+        .resume[data-theme="staff-software-engineering"] .resume-section {
+          align-items: start;
+          column-gap: 0.22in;
+          display: grid;
+          grid-template-columns: 1.18in minmax(0, 1fr);
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section > h2 {
+          align-self: start;
+          border-top: 0.65pt solid var(--rf-color-rule);
+          display: block;
+          grid-column: 1;
+          padding-top: 0.055in;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section > h2::after {
+          display: none;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section > .resume-section-summary,
+        .resume[data-theme="staff-software-engineering"] .resume-section > .resume-entry {
+          grid-column: 2;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section > h2 + * {
+          margin-top: 0;
+        }
+      }
+
+      @media print, screen and (min-width: 820px) {
+        .resume[data-theme="staff-software-engineering"] #staff-scope {
+          grid-template-columns: 1.18in repeat(2, minmax(0, 1fr));
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope > h2 {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope > .resume-entry {
+          grid-column: auto;
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope > .resume-entry + .resume-entry {
+          margin-top: 0;
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope .resume-entry-header,
+        .resume[data-theme="staff-software-engineering"] #staff-scope .resume-entry-header > div {
+          display: block;
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope .resume-entry-meta {
+          justify-self: start;
+          margin-top: 0.018in;
+          text-align: left;
+        }
+      }
+
+      @media screen and (min-width: 600px) and (max-width: 720px) {
+        .resume[data-theme="staff-software-engineering"] .resume-entry-header,
+        .resume[data-theme="staff-software-engineering"] .resume-entry-header > div {
+          display: block;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-entry-meta {
+          justify-self: start;
+          margin-top: 0.012in;
+          text-align: left;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section--skills .resume-entry {
+          column-gap: 0.12in;
+          grid-template-columns: 0.98in minmax(0, 1fr);
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-skills-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media screen and (max-width: 599px) {
         .resume[data-theme="staff-software-engineering"] .resume-header,
         .resume[data-theme="staff-software-engineering"] .resume-entry-header,
         .resume[data-theme="staff-software-engineering"] .resume-entry-header > div,
@@ -343,10 +429,21 @@ exports[`HTML presentation themes > renders a dense Staff software engineering o
           display: block;
         }
 
+        .resume[data-theme="staff-software-engineering"] .resume-header {
+          padding-bottom: 0.13in;
+        }
+
         .resume[data-theme="staff-software-engineering"] .resume-contact,
         .resume[data-theme="staff-software-engineering"] .resume-entry-meta {
           justify-items: start;
           text-align: left;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-contact {
+          display: flex;
+          flex-wrap: wrap;
+          column-gap: 0.035in;
+          row-gap: 0.015in;
         }
 
         .resume[data-theme="staff-software-engineering"] .resume-contact .resume-separator {
@@ -731,30 +828,30 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
         --rf-page-height: 11in;
         --rf-page-margin: 0.55in;
         --rf-font-family: Aptos, Arial, Helvetica, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-        --rf-font-size: 10pt;
-        --rf-small-size: 8.35pt;
-        --rf-h1-size: 21pt;
-        --rf-h2-size: 8.7pt;
-        --rf-h3-size: 10.05pt;
-        --rf-line-height: 1.3;
+        --rf-font-size: 9.65pt;
+        --rf-small-size: 8.15pt;
+        --rf-h1-size: 24pt;
+        --rf-h2-size: 7.6pt;
+        --rf-h3-size: 9.8pt;
+        --rf-line-height: 1.34;
         --rf-heading-line-height: 1.08;
         --rf-regular-weight: 400;
         --rf-medium-weight: 600;
         --rf-bold-weight: 700;
         --rf-letter-spacing: 0;
         --rf-color-background: #ffffff;
-        --rf-color-text: #111111;
-        --rf-color-muted: #404040;
-        --rf-color-subtle: #737373;
-        --rf-color-accent: #262626;
-        --rf-color-link: #1f2937;
-        --rf-color-rule: #b8b8b8;
+        --rf-color-text: #171717;
+        --rf-color-muted: #494949;
+        --rf-color-subtle: #747474;
+        --rf-color-accent: #242424;
+        --rf-color-link: #252a32;
+        --rf-color-rule: #d5d5d0;
         --rf-header-gap: 0.11in;
         --rf-contact-gap: 0.055in;
         --rf-section-title-gap: 0.045in;
         --rf-list-indent: 0.14in;
-        --rf-section-gap: 0.14in;
-        --rf-item-gap: 0.08in;
+        --rf-section-gap: 0.17in;
+        --rf-item-gap: 0.082in;
         --rf-list-gap: 0.014in;
         --rf-paragraph-gap: 0.03in;
         --rf-density-font-scale: 1;
@@ -763,9 +860,9 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
         --rf-item-rule-width: 0;
         --rf-item-rule-style: solid;
         --rf-rule-radius: 0;
-        --rf-screen-background: #f3f3f0;
-        --rf-screen-padding: 32px 24px;
-        --rf-screen-shadow: 0 18px 50px rgb(17 17 17 / 0.12);
+        --rf-screen-background: #eef0f2;
+        --rf-screen-padding: 36px 24px;
+        --rf-screen-shadow: 0 22px 55px rgb(17 24 39 / 0.14);
       }
 
       @page {
@@ -923,26 +1020,28 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
       }
 
       .resume[data-theme="staff-software-engineering"] {
-        border-top: 1.5pt solid var(--rf-color-text);
+        border-top: 2pt solid var(--rf-color-text);
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-header {
         align-items: start;
-        border-bottom: 0.7pt solid var(--rf-color-rule);
-        column-gap: 0.28in;
+        border-bottom: 0.65pt solid var(--rf-color-rule);
+        column-gap: 0.34in;
         grid-template-columns: minmax(0, 1fr) auto;
         margin-bottom: 0;
-        padding-bottom: 0.11in;
-        row-gap: 0.025in;
+        padding-bottom: 0.15in;
+        row-gap: 0.026in;
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-header h1 {
+        font-family: Georgia, "Times New Roman", serif;
+        font-weight: var(--rf-bold-weight);
         grid-column: 1;
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-label {
         color: var(--rf-color-text);
-        font-size: 10.2pt;
+        font-size: 9.7pt;
         font-weight: var(--rf-medium-weight);
         grid-column: 1;
       }
@@ -965,7 +1064,9 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
         color: var(--rf-color-text);
         font-weight: var(--rf-medium-weight);
         grid-column: 1 / -1;
-        max-width: 6.55in;
+        line-height: 1.28;
+        max-width: 6.35in;
+        padding-top: 0.04in;
       }
 
       .resume[data-theme="staff-software-engineering"] h2 {
@@ -983,7 +1084,7 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-section > h2 + * {
-        margin-top: 0.055in;
+        margin-top: 0.06in;
       }
 
       .resume[data-theme="staff-software-engineering"] .resume-entry-header {
@@ -1051,7 +1152,89 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
         margin-top: 0;
       }
 
-      @media screen and (max-width: 560px) {
+      @media print, screen and (min-width: 600px) {
+        .resume[data-theme="staff-software-engineering"] .resume-section {
+          align-items: start;
+          column-gap: 0.22in;
+          display: grid;
+          grid-template-columns: 1.18in minmax(0, 1fr);
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section > h2 {
+          align-self: start;
+          border-top: 0.65pt solid var(--rf-color-rule);
+          display: block;
+          grid-column: 1;
+          padding-top: 0.055in;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section > h2::after {
+          display: none;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section > .resume-section-summary,
+        .resume[data-theme="staff-software-engineering"] .resume-section > .resume-entry {
+          grid-column: 2;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section > h2 + * {
+          margin-top: 0;
+        }
+      }
+
+      @media print, screen and (min-width: 820px) {
+        .resume[data-theme="staff-software-engineering"] #staff-scope {
+          grid-template-columns: 1.18in repeat(2, minmax(0, 1fr));
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope > h2 {
+          grid-column: 1;
+          grid-row: 1;
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope > .resume-entry {
+          grid-column: auto;
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope > .resume-entry + .resume-entry {
+          margin-top: 0;
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope .resume-entry-header,
+        .resume[data-theme="staff-software-engineering"] #staff-scope .resume-entry-header > div {
+          display: block;
+        }
+
+        .resume[data-theme="staff-software-engineering"] #staff-scope .resume-entry-meta {
+          justify-self: start;
+          margin-top: 0.018in;
+          text-align: left;
+        }
+      }
+
+      @media screen and (min-width: 600px) and (max-width: 720px) {
+        .resume[data-theme="staff-software-engineering"] .resume-entry-header,
+        .resume[data-theme="staff-software-engineering"] .resume-entry-header > div {
+          display: block;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-entry-meta {
+          justify-self: start;
+          margin-top: 0.012in;
+          text-align: left;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-section--skills .resume-entry {
+          column-gap: 0.12in;
+          grid-template-columns: 0.98in minmax(0, 1fr);
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-skills-list {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media screen and (max-width: 599px) {
         .resume[data-theme="staff-software-engineering"] .resume-header,
         .resume[data-theme="staff-software-engineering"] .resume-entry-header,
         .resume[data-theme="staff-software-engineering"] .resume-entry-header > div,
@@ -1060,10 +1243,21 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
           display: block;
         }
 
+        .resume[data-theme="staff-software-engineering"] .resume-header {
+          padding-bottom: 0.13in;
+        }
+
         .resume[data-theme="staff-software-engineering"] .resume-contact,
         .resume[data-theme="staff-software-engineering"] .resume-entry-meta {
           justify-items: start;
           text-align: left;
+        }
+
+        .resume[data-theme="staff-software-engineering"] .resume-contact {
+          display: flex;
+          flex-wrap: wrap;
+          column-gap: 0.035in;
+          row-gap: 0.015in;
         }
 
         .resume[data-theme="staff-software-engineering"] .resume-contact .resume-separator {
