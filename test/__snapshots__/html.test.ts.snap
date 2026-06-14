@@ -1,0 +1,577 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`HTML presentation themes > renders a one-page baseline theme with print-first CSS and semantic HTML 1`] = `
+"<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>One Page Example Resume</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --rf-page-width: 8.5in;
+        --rf-page-height: 11in;
+        --rf-page-margin: 0.55in;
+        --rf-font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        --rf-font-size: 10.5pt;
+        --rf-small-size: 8.8pt;
+        --rf-h1-size: 20pt;
+        --rf-h2-size: 9.5pt;
+        --rf-h3-size: 10.5pt;
+        --rf-line-height: 1.35;
+        --rf-heading-line-height: 1.12;
+        --rf-regular-weight: 400;
+        --rf-medium-weight: 600;
+        --rf-bold-weight: 700;
+        --rf-letter-spacing: 0;
+        --rf-color-background: #ffffff;
+        --rf-color-text: #111827;
+        --rf-color-muted: #4b5563;
+        --rf-color-subtle: #6b7280;
+        --rf-color-accent: #0f766e;
+        --rf-color-link: #0f766e;
+        --rf-color-rule: #d1d5db;
+        --rf-header-gap: 0.14in;
+        --rf-contact-gap: 0.08in;
+        --rf-section-title-gap: 0.08in;
+        --rf-list-indent: 0.16in;
+        --rf-section-gap: 0.135in;
+        --rf-item-gap: 0.075in;
+        --rf-list-gap: 0.016in;
+        --rf-paragraph-gap: 0.03in;
+        --rf-section-rule-width: 0.8pt;
+        --rf-section-rule-style: solid;
+        --rf-item-rule-width: 0;
+        --rf-item-rule-style: solid;
+        --rf-rule-radius: 0;
+      }
+
+      @page {
+        size: 8.5in 11in;
+        margin: 0.55in;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--rf-color-background);
+      }
+
+      body {
+        color: var(--rf-color-text);
+        font-family: var(--rf-font-family);
+        font-size: var(--rf-font-size);
+        font-weight: var(--rf-regular-weight);
+        line-height: var(--rf-line-height);
+      }
+
+      .resume {
+        width: 100%;
+        max-width: var(--rf-page-width);
+        margin: 0 auto;
+        padding: var(--rf-page-margin);
+        background: var(--rf-color-background);
+      }
+
+      .resume[data-page-target="one-page"] {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--rf-color-text);
+        font-weight: var(--rf-bold-weight);
+        letter-spacing: var(--rf-letter-spacing);
+        line-height: var(--rf-heading-line-height);
+      }
+
+      h1 {
+        font-size: var(--rf-h1-size);
+      }
+
+      h2 {
+        border-bottom: var(--rf-section-rule-width) var(--rf-section-rule-style) var(--rf-color-accent);
+        color: var(--rf-color-accent);
+        font-size: var(--rf-h2-size);
+        padding-bottom: var(--rf-section-title-gap);
+        text-transform: uppercase;
+      }
+
+      h3 {
+        font-size: var(--rf-h3-size);
+      }
+
+      a {
+        color: var(--rf-color-link);
+        text-decoration: underline;
+        text-underline-offset: 0.08em;
+      }
+
+      address {
+        font-style: normal;
+      }
+
+      ul {
+        margin: var(--rf-paragraph-gap) 0 0;
+        padding-left: var(--rf-list-indent);
+      }
+
+      li + li {
+        margin-top: var(--rf-list-gap);
+      }
+
+      .resume-header {
+        display: grid;
+        gap: var(--rf-contact-gap);
+        margin-bottom: var(--rf-header-gap);
+      }
+
+      .resume-label,
+      .resume-contact,
+      .resume-entry-meta,
+      .resume-entry-link {
+        color: var(--rf-color-muted);
+      }
+
+      .resume-summary,
+      .resume-section-summary,
+      .resume-entry p {
+        margin-top: var(--rf-paragraph-gap);
+      }
+
+      .resume-section {
+        break-inside: avoid-page;
+        margin-top: var(--rf-section-gap);
+      }
+
+      .resume-section > h2 + * {
+        margin-top: var(--rf-item-gap);
+      }
+
+      .resume-entry {
+        break-inside: avoid-page;
+        border-top: var(--rf-item-rule-width) var(--rf-item-rule-style) var(--rf-color-rule);
+      }
+
+      .resume-entry + .resume-entry {
+        margin-top: var(--rf-item-gap);
+      }
+
+      .resume-entry-header {
+        align-items: baseline;
+        display: flex;
+        gap: var(--rf-contact-gap);
+        justify-content: space-between;
+      }
+
+      .resume-entry-meta,
+      .resume-entry-link,
+      .resume-contact {
+        font-size: var(--rf-small-size);
+      }
+
+      .resume-skills-list {
+        columns: 2;
+        list-style-position: outside;
+      }
+
+      @media screen {
+        body {
+          background: #f3f4f6;
+          padding: 24px;
+        }
+
+        .resume {
+          box-shadow: 0 12px 30px rgb(15 23 42 / 0.12);
+        }
+      }
+
+      @media print {
+        html,
+        body {
+          background: var(--rf-color-background);
+        }
+
+        body {
+          padding: 0;
+        }
+
+        .resume {
+          max-width: none;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="resume" aria-label="One Page Person resume" data-theme="baseline" data-density="compact" data-page-size="letter" data-page-target="one-page">
+      <header class="resume-header">
+        <h1>One Page Person</h1>
+        <p class="resume-label">Product Engineer</p>
+        <address class="resume-contact" aria-label="Contact"><a href="mailto:one@example.com">one@example.com</a><span class="resume-separator" aria-hidden="true"> | </span><a href="https://one.example.com">one.example.com</a><span class="resume-separator" aria-hidden="true"> | </span><span>San Francisco, CA</span></address>
+        <p class="resume-summary">Builds focused product systems with typed content workflows.</p>
+      </header>
+      <section id="experience" class="resume-section resume-section--experience" aria-labelledby="experience-heading" data-section-kind="experience" data-density="compact">
+        <h2 id="experience-heading">Experience</h2>
+
+        <article id="compact-systems-lead" class="resume-entry">
+          <header class="resume-entry-header">
+            <div>
+              <h3>Compact Systems</h3>
+              <p class="resume-entry-meta"><span>Lead Engineer at Compact Systems</span><span class="resume-separator" aria-hidden="true"> | </span><span>San Francisco, CA</span><span class="resume-separator" aria-hidden="true"> | </span><span><time datetime="2023">2023</time><span aria-hidden="true"> - </span><span>Present</span></span></p>
+            </div>
+
+          </header>
+          <p>Led a small team building resume authoring and rendering infrastructure.</p>
+          <ul><li>Shipped a schema-first import path for Markdown-authored resumes.</li><li>Kept the one-page variant concise through section priority metadata.</li></ul>
+        </article>
+      </section>
+      <section id="skills" class="resume-section resume-section--skills" aria-labelledby="skills-heading" data-section-kind="skills" data-density="compact">
+        <h2 id="skills-heading">Skills</h2>
+
+        <article id="languages" class="resume-entry resume-skill-group">
+          <h3>Languages</h3>
+          <ul class="resume-skills-list" aria-label="Languages skills">
+            <li>TypeScript</li><li>Python</li>
+          </ul>
+        </article>
+        <article id="practices" class="resume-entry resume-skill-group">
+          <h3>Practices</h3>
+          <ul class="resume-skills-list" aria-label="Practices skills">
+            <li>Schema design</li><li>Content validation</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>"
+`;
+
+exports[`HTML presentation themes > renders a two-page baseline theme with selectable text links 1`] = `
+"<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Two Page Example Resume</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --rf-page-width: 210mm;
+        --rf-page-height: 297mm;
+        --rf-page-margin: 14mm;
+        --rf-font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+        --rf-font-size: 10.5pt;
+        --rf-small-size: 8.8pt;
+        --rf-h1-size: 20pt;
+        --rf-h2-size: 9.5pt;
+        --rf-h3-size: 10.5pt;
+        --rf-line-height: 1.35;
+        --rf-heading-line-height: 1.12;
+        --rf-regular-weight: 400;
+        --rf-medium-weight: 600;
+        --rf-bold-weight: 700;
+        --rf-letter-spacing: 0;
+        --rf-color-background: #ffffff;
+        --rf-color-text: #111827;
+        --rf-color-muted: #4b5563;
+        --rf-color-subtle: #6b7280;
+        --rf-color-accent: #0f766e;
+        --rf-color-link: #0f766e;
+        --rf-color-rule: #d1d5db;
+        --rf-header-gap: 0.14in;
+        --rf-contact-gap: 0.08in;
+        --rf-section-title-gap: 0.08in;
+        --rf-list-indent: 0.16in;
+        --rf-section-gap: 0.18in;
+        --rf-item-gap: 0.11in;
+        --rf-list-gap: 0.025in;
+        --rf-paragraph-gap: 0.045in;
+        --rf-section-rule-width: 0.8pt;
+        --rf-section-rule-style: solid;
+        --rf-item-rule-width: 0;
+        --rf-item-rule-style: solid;
+        --rf-rule-radius: 0;
+      }
+
+      @page {
+        size: 210mm 297mm;
+        margin: 14mm;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--rf-color-background);
+      }
+
+      body {
+        color: var(--rf-color-text);
+        font-family: var(--rf-font-family);
+        font-size: var(--rf-font-size);
+        font-weight: var(--rf-regular-weight);
+        line-height: var(--rf-line-height);
+      }
+
+      .resume {
+        width: 100%;
+        max-width: var(--rf-page-width);
+        margin: 0 auto;
+        padding: var(--rf-page-margin);
+        background: var(--rf-color-background);
+      }
+
+      .resume[data-page-target="two-page"] {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+      }
+
+      h1,
+      h2,
+      h3,
+      p {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        color: var(--rf-color-text);
+        font-weight: var(--rf-bold-weight);
+        letter-spacing: var(--rf-letter-spacing);
+        line-height: var(--rf-heading-line-height);
+      }
+
+      h1 {
+        font-size: var(--rf-h1-size);
+      }
+
+      h2 {
+        border-bottom: var(--rf-section-rule-width) var(--rf-section-rule-style) var(--rf-color-accent);
+        color: var(--rf-color-accent);
+        font-size: var(--rf-h2-size);
+        padding-bottom: var(--rf-section-title-gap);
+        text-transform: uppercase;
+      }
+
+      h3 {
+        font-size: var(--rf-h3-size);
+      }
+
+      a {
+        color: var(--rf-color-link);
+        text-decoration: underline;
+        text-underline-offset: 0.08em;
+      }
+
+      address {
+        font-style: normal;
+      }
+
+      ul {
+        margin: var(--rf-paragraph-gap) 0 0;
+        padding-left: var(--rf-list-indent);
+      }
+
+      li + li {
+        margin-top: var(--rf-list-gap);
+      }
+
+      .resume-header {
+        display: grid;
+        gap: var(--rf-contact-gap);
+        margin-bottom: var(--rf-header-gap);
+      }
+
+      .resume-label,
+      .resume-contact,
+      .resume-entry-meta,
+      .resume-entry-link {
+        color: var(--rf-color-muted);
+      }
+
+      .resume-summary,
+      .resume-section-summary,
+      .resume-entry p {
+        margin-top: var(--rf-paragraph-gap);
+      }
+
+      .resume-section {
+        break-inside: avoid-page;
+        margin-top: var(--rf-section-gap);
+      }
+
+      .resume-section > h2 + * {
+        margin-top: var(--rf-item-gap);
+      }
+
+      .resume-entry {
+        break-inside: avoid-page;
+        border-top: var(--rf-item-rule-width) var(--rf-item-rule-style) var(--rf-color-rule);
+      }
+
+      .resume-entry + .resume-entry {
+        margin-top: var(--rf-item-gap);
+      }
+
+      .resume-entry-header {
+        align-items: baseline;
+        display: flex;
+        gap: var(--rf-contact-gap);
+        justify-content: space-between;
+      }
+
+      .resume-entry-meta,
+      .resume-entry-link,
+      .resume-contact {
+        font-size: var(--rf-small-size);
+      }
+
+      .resume-skills-list {
+        columns: 2;
+        list-style-position: outside;
+      }
+
+      @media screen {
+        body {
+          background: #f3f4f6;
+          padding: 24px;
+        }
+
+        .resume {
+          box-shadow: 0 12px 30px rgb(15 23 42 / 0.12);
+        }
+      }
+
+      @media print {
+        html,
+        body {
+          background: var(--rf-color-background);
+        }
+
+        body {
+          padding: 0;
+        }
+
+        .resume {
+          max-width: none;
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="resume" aria-label="Two Page Person resume" data-theme="baseline" data-density="standard" data-page-size="a4" data-page-target="two-page">
+      <header class="resume-header">
+        <h1>Two Page Person</h1>
+        <p class="resume-label">Staff Software Engineer</p>
+        <address class="resume-contact" aria-label="Contact"><a href="mailto:two@example.com">two@example.com</a><span class="resume-separator" aria-hidden="true"> | </span><a href="tel:+15550200">+1 555 0200</a><span class="resume-separator" aria-hidden="true"> | </span><a href="https://two.example.com">two.example.com</a><span class="resume-separator" aria-hidden="true"> | </span><span>New York, NY</span></address>
+        <p class="resume-summary">Builds durable systems across product engineering, data tooling, and developer platforms.</p>
+      </header>
+      <section id="experience" class="resume-section resume-section--experience" aria-labelledby="experience-heading" data-section-kind="experience">
+        <h2 id="experience-heading">Experience</h2>
+
+        <article id="durable-apps-staff" class="resume-entry">
+          <header class="resume-entry-header">
+            <div>
+              <h3>Durable Apps</h3>
+              <p class="resume-entry-meta"><span>Staff Software Engineer at Durable Apps</span><span class="resume-separator" aria-hidden="true"> | </span><span><time datetime="2021-04">2021-04</time><span aria-hidden="true"> - </span><span>Present</span></span></p>
+            </div>
+
+          </header>
+          <p>Led platform work across authoring, validation, and publishing workflows.</p>
+          <ul><li>Designed reusable content models for multi-format publishing.</li><li>Built validation reporting that mapped parser failures to source locations.</li></ul>
+        </article>
+        <article id="reliable-labs-senior" class="resume-entry">
+          <header class="resume-entry-header">
+            <div>
+              <h3>Reliable Labs</h3>
+              <p class="resume-entry-meta"><span>Senior Software Engineer at Reliable Labs</span><span class="resume-separator" aria-hidden="true"> | </span><span><time datetime="2018">2018</time><span aria-hidden="true"> - </span><time datetime="2021">2021</time></span></p>
+            </div>
+
+          </header>
+
+          <ul><li>Migrated legacy document templates to structured resume data.</li><li>Added import warnings for compatibility formats with lossy fields.</li></ul>
+        </article>
+      </section>
+      <section id="projects" class="resume-section resume-section--projects" aria-labelledby="projects-heading" data-section-kind="projects">
+        <h2 id="projects-heading">Projects</h2>
+
+        <article id="resume-foundry-parser" class="resume-entry">
+          <header class="resume-entry-header">
+            <div>
+              <h3>Resume Foundry</h3>
+              <p class="resume-entry-meta"><span>Markdown/frontmatter parser</span></p>
+            </div>
+            <a class="resume-entry-link" href="https://github.com/aclyx/resume-foundry" aria-label="Resume Foundry link">github.com/aclyx/resume-foundry</a>
+          </header>
+          <p>Parses author-friendly resumes into a canonical typed schema.</p>
+          <ul><li>Supports structured metadata blocks for experience, education, projects, and skills.</li></ul>
+        </article>
+        <article id="projects-parser-notes" class="resume-entry">
+          <header class="resume-entry-header">
+            <div>
+              <h3>Parser Notes</h3>
+
+            </div>
+
+          </header>
+          <p>Documents the importer contract for author-friendly Markdown files.</p>
+          <ul><li>Shows that structured YAML blocks are optional for ordinary section items.</li></ul>
+        </article>
+      </section>
+      <section id="education" class="resume-section resume-section--education" aria-labelledby="education-heading" data-section-kind="education">
+        <h2 id="education-heading">Education</h2>
+
+        <article id="example-university-bs" class="resume-entry">
+          <header class="resume-entry-header">
+            <div>
+              <h3>Example University</h3>
+              <p class="resume-entry-meta"><span>B.S. Computer Science at Example University</span><span class="resume-separator" aria-hidden="true"> | </span><span><time datetime="2014">2014</time><span aria-hidden="true"> - </span><time datetime="2018">2018</time></span></p>
+            </div>
+
+          </header>
+
+          <ul><li>Studied distributed systems and human-computer interaction.</li></ul>
+        </article>
+      </section>
+      <section id="skills" class="resume-section resume-section--skills" aria-labelledby="skills-heading" data-section-kind="skills">
+        <h2 id="skills-heading">Skills</h2>
+
+        <article id="skills-languages" class="resume-entry resume-skill-group">
+          <h3>Languages</h3>
+          <ul class="resume-skills-list" aria-label="Languages skills">
+            <li>TypeScript</li><li>Python</li><li>SQL</li>
+          </ul>
+        </article>
+        <article id="skills-platforms" class="resume-entry resume-skill-group">
+          <h3>Platforms</h3>
+          <ul class="resume-skills-list" aria-label="Platforms skills">
+            <li>Node.js</li><li>Postgres</li><li>GitHub Actions</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>"
+`;

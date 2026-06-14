@@ -15,13 +15,14 @@ This is an initial scaffold. The renderer API is intentionally small while the p
 - Zod-backed canonical resume data model
 - generated JSON Schema for the canonical model
 - canonical JSON and Markdown/frontmatter fixtures
-- theme-aware render options
+- print-first HTML presentation theme system
 - Markdown output
 - HTML output
 - PDF output placeholder for a later HTML-to-PDF pipeline
 - CLI entry point placeholder
 
 The data layer is documented in [docs/data-layer.md](docs/data-layer.md).
+The presentation theme system is documented in [docs/theme-system.md](docs/theme-system.md).
 
 ## Markdown Import
 
@@ -50,6 +51,21 @@ pnpm build
 pnpm resume-foundry parse fixtures/one-page.resume.md --format json
 pnpm resume-foundry parse fixtures/one-page.resume.md --format markdown
 ```
+
+## HTML Themes
+
+```ts
+import { baselineResumeTheme, renderHtml } from "resume-foundry";
+
+const html = renderHtml(resume, {
+  theme: baselineResumeTheme,
+  variant: "one-page",
+  pageSize: "letter",
+});
+```
+
+The baseline theme renders semantic HTML with selectable text, accessible links, `@page`
+print CSS, page-size controls, and compact/standard/spacious density tokens.
 
 ## Development
 

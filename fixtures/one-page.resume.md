@@ -65,6 +65,20 @@ Led a small team building resume authoring and rendering infrastructure.
 - Shipped a schema-first import path for Markdown-authored resumes.
 - Kept the one-page variant concise through section priority metadata.
 
+### Archive Tools
+
+```resume-foundry
+id: archive-tools-engineer
+subtitle: Software Engineer
+organization: Archive Tools
+dateRange:
+  start: 2020
+  end: 2023
+priority: 70
+```
+
+- Maintained earlier document export workflows.
+
 ## Skills
 
 ```resume-foundry
