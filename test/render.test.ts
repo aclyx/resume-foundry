@@ -72,9 +72,9 @@ describe("resume renderers", () => {
     expect(html).toContain("#0f766e");
   });
 
-  it("reserves PDF rendering for a later pipeline", () => {
+  it("points synchronous PDF rendering to the async pipeline", () => {
     expect(() => renderResume(sampleResume, { format: "pdf" })).toThrow(
-      "PDF rendering is not implemented yet.",
+      "PDF rendering is asynchronous. Use renderPdf or renderResumeAsync.",
     );
   });
 
