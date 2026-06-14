@@ -375,11 +375,15 @@ function renderThemeCss({ theme, density, pageSize, pageTarget }: ResolvedHtmlOp
         --rf-item-gap: ${densityTokens.itemGap};
         --rf-list-gap: ${densityTokens.listGap};
         --rf-paragraph-gap: ${densityTokens.paragraphGap};
+        --rf-density-font-scale: ${densityTokens.fontScale};
         --rf-section-rule-width: ${tokens.rules.sectionWidth};
         --rf-section-rule-style: ${tokens.rules.sectionStyle};
         --rf-item-rule-width: ${tokens.rules.itemWidth};
         --rf-item-rule-style: ${tokens.rules.itemStyle};
         --rf-rule-radius: ${tokens.rules.radius};
+        --rf-screen-background: ${tokens.surface.screenBackground};
+        --rf-screen-padding: ${tokens.surface.screenPadding};
+        --rf-screen-shadow: ${tokens.surface.screenShadow};
       }
 
       @page {
@@ -401,7 +405,7 @@ function renderThemeCss({ theme, density, pageSize, pageTarget }: ResolvedHtmlOp
       body {
         color: var(--rf-color-text);
         font-family: var(--rf-font-family);
-        font-size: var(--rf-font-size);
+        font-size: calc(var(--rf-font-size) * var(--rf-density-font-scale));
         font-weight: var(--rf-regular-weight);
         line-height: var(--rf-line-height);
       }
@@ -527,12 +531,12 @@ function renderThemeCss({ theme, density, pageSize, pageTarget }: ResolvedHtmlOp
 
       @media screen {
         body {
-          background: #f3f4f6;
-          padding: 24px;
+          background: var(--rf-screen-background);
+          padding: var(--rf-screen-padding);
         }
 
         .resume {
-          box-shadow: 0 12px 30px rgb(15 23 42 / 0.12);
+          box-shadow: var(--rf-screen-shadow);
         }
       }
 

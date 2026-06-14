@@ -8,6 +8,7 @@ import {
   parseResumeMarkdown,
   renderHtml,
   renderResume,
+  staffSoftwareEngineeringTheme,
 } from "../src/index.js";
 
 const fixtureRoot = join(import.meta.dirname, "..", "fixtures");
@@ -73,5 +74,42 @@ describe("HTML presentation themes", () => {
 
     expect(renderHtml(resume)).toContain('data-theme="baseline"');
     expect(renderResume(resume, { format: "html" })).toContain('data-theme="baseline"');
+  });
+
+  it("renders a dense Staff software engineering one-page theme", () => {
+    const resume = parseResumeMarkdown(readFixture("one-page.resume.md"));
+    const html = renderHtml(resume, {
+      theme: staffSoftwareEngineeringTheme,
+      variant: "one-page",
+      pageSize: "letter",
+    });
+
+    expect(html).toContain('data-theme="staff-software-engineering"');
+    expect(html).toContain('data-density="compact"');
+    expect(html).toContain("--rf-screen-shadow: none");
+    expect(html).toContain("--rf-color-accent: #262626");
+    expect(html).not.toContain("<img");
+    expect(html).not.toContain("<canvas");
+    expect(html).not.toContain("gradient");
+    expect(html).not.toContain("Archive Tools");
+    expect(html).toMatchSnapshot();
+  });
+
+  it("renders a restrained Staff software engineering two-page theme", () => {
+    const resume = parseResumeMarkdown(readFixture("two-page.resume.md"));
+    const html = renderHtml(resume, {
+      theme: staffSoftwareEngineeringTheme,
+      variant: "two-page",
+      pageSize: "letter",
+    });
+
+    expect(html).toContain('data-theme="staff-software-engineering"');
+    expect(html).toContain('data-page-target="two-page"');
+    expect(html).toContain("size: 8.5in 11in");
+    expect(html).toContain("Resume Foundry");
+    expect(html).not.toContain("<img");
+    expect(html).not.toContain("<canvas");
+    expect(html).not.toContain("linear-gradient");
+    expect(html).toMatchSnapshot();
   });
 });

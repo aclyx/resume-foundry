@@ -19,6 +19,7 @@ export {
   resolveResumePageSize,
   resumePageSizeValues,
   resumePageSizes,
+  staffSoftwareEngineeringTheme,
 } from "./theme.js";
 
 export type {
@@ -30,6 +31,7 @@ export type {
   ResumePresentationControls,
   ResumeRuleTokens,
   ResumeSpacingTokens,
+  ResumeSurfaceTokens,
   ResumeTheme,
   ResumeThemeInput,
   ResumeThemeTokens,

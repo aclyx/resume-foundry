@@ -23,8 +23,14 @@ interface ResumeTheme {
 - `rules`: section and item rule widths/styles.
 - `density`: `compact`, `standard`, and `spacious` token overrides for section, item,
   paragraph, and list spacing.
+- `surface`: screen-preview background, padding, and shadow. Print output remains governed
+  by `@page` and the resume text tokens.
 
 The included `baselineResumeTheme` is intentionally minimal and print-oriented.
+The included `staffSoftwareEngineeringTheme` is denser and more typographic, optimized
+for Staff-level software engineering resumes that need ATS-visible text, subtle rules, and
+a restrained PDF/print appearance without cards, badges, icons, gradients, or dark
+backgrounds.
 
 ## Render Controls
 
