@@ -12,12 +12,16 @@ This repository uses pnpm. It is fast, disk-efficient, and its strict dependency
 
 This is an initial scaffold. The renderer API is intentionally small while the project shape is established:
 
-- structured resume data model
+- Zod-backed canonical resume data model
+- generated JSON Schema for the canonical model
+- canonical JSON and Markdown/frontmatter fixtures
 - theme-aware render options
 - Markdown output
 - HTML output
 - PDF output placeholder for a later HTML-to-PDF pipeline
 - CLI entry point placeholder
+
+The data layer is documented in [docs/data-layer.md](docs/data-layer.md).
 
 ## Development
 
@@ -26,6 +30,7 @@ pnpm install
 pnpm lint
 pnpm test
 pnpm build
+pnpm schema
 ```
 
 ## CLI

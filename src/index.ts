@@ -1,33 +1,50 @@
+export {
+  RESUME_DOCUMENT_SCHEMA_VERSION,
+  ResumeBasicsSchema,
+  ResumeDateRangeSchema,
+  ResumeDocumentSchema,
+  ResumeEntryOverrideSchema,
+  ResumeEntrySchema,
+  ResumeHighlightSchema,
+  ResumeMetadataSchema,
+  ResumeProfileSchema,
+  ResumeSectionOverrideSchema,
+  ResumeSectionSchema,
+  ResumeSkillGroupSchema,
+  ResumeSkillSchema,
+  ResumeVariantSchema,
+  formatResumeValidationErrors,
+  parseResumeDocument,
+  resumeDensityValues,
+  resumeDocumentJsonSchema,
+  resumePageTargetValues,
+  resumeSectionKindValues,
+  validateResumeDocument,
+} from "./schema.js";
+
+export type {
+  ResumeBasics,
+  ResumeDateRange,
+  ResumeDensity,
+  ResumeDocument,
+  ResumeEntry,
+  ResumeEntryOverride,
+  ResumeHighlight,
+  ResumeMetadata,
+  ResumePageTarget,
+  ResumeProfile,
+  ResumeSection,
+  ResumeSectionOverride,
+  ResumeSkill,
+  ResumeSkillGroup,
+  ResumeValidationIssue,
+  ResumeValidationResult,
+  ResumeVariant,
+} from "./schema.js";
+
+import type { ResumeBasics, ResumeDateRange, ResumeDocument, ResumeSection } from "./schema.js";
+
 export type ResumeOutputFormat = "html" | "pdf" | "markdown";
-
-export interface ResumeDocument {
-  basics: ResumeBasics;
-  sections?: ResumeSection[];
-}
-
-export interface ResumeBasics {
-  name: string;
-  label?: string;
-  email?: string;
-  phone?: string;
-  url?: string;
-  summary?: string;
-  location?: string;
-}
-
-export interface ResumeSection {
-  title: string;
-  items: ResumeSectionItem[];
-}
-
-export interface ResumeSectionItem {
-  heading: string;
-  subheading?: string;
-  startDate?: string;
-  endDate?: string;
-  summary?: string;
-  highlights?: string[];
-}
 
 export interface ResumeTheme {
   name: string;
@@ -60,7 +77,7 @@ export function renderMarkdown(resume: ResumeDocument): string {
     resume.basics.label,
     formatContactLine(resume.basics),
     resume.basics.summary,
-    ...formatMarkdownSections(resume.sections ?? []),
+    ...formatMarkdownSections(resume.sections),
   ];
 
   return lines.filter(isPresent).join("\n\n");
@@ -116,7 +133,7 @@ export function renderHtml(
         ${contactLine ? `<p class="contact">${escapeHtml(contactLine)}</p>` : ""}
         ${resume.basics.summary ? `<p>${escapeHtml(resume.basics.summary)}</p>` : ""}
       </header>
-      ${formatHtmlSections(resume.sections ?? [])}
+      ${formatHtmlSections(resume.sections)}
     </main>
   </body>
 </html>`;
@@ -124,17 +141,17 @@ export function renderHtml(
 
 function formatMarkdownSections(sections: ResumeSection[]): string[] {
   return sections.map((section) => {
-    const items = section.items.map(formatMarkdownItem).join("\n\n");
+    const items = getSectionItems(section).map(formatMarkdownItem).join("\n\n");
     return `## ${section.title}\n\n${items}`;
   });
 }
 
-function formatMarkdownItem(item: ResumeSectionItem): string {
+function formatMarkdownItem(item: RenderableSectionItem): string {
   const lines = [
-    `### ${item.heading}`,
-    [item.subheading, formatDateRange(item)].filter(isPresent).join(" | "),
+    `### ${item.title}`,
+    [formatEntrySubtitle(item), formatDateRange(item.dateRange)].filter(isPresent).join(" | "),
     item.summary,
-    ...(item.highlights ?? []).map((highlight) => `- ${highlight}`),
+    ...(item.highlights ?? []).map((highlight) => `- ${highlight.text}`),
   ];
 
   return lines.filter(isPresent).join("\n");
@@ -143,7 +160,7 @@ function formatMarkdownItem(item: ResumeSectionItem): string {
 function formatHtmlSections(sections: ResumeSection[]): string {
   return sections
     .map((section) => {
-      const items = section.items.map(formatHtmlItem).join("");
+      const items = getSectionItems(section).map(formatHtmlItem).join("");
 
       return `<section>
         <h2>${escapeHtml(section.title)}</h2>
@@ -153,14 +170,16 @@ function formatHtmlSections(sections: ResumeSection[]): string {
     .join("");
 }
 
-function formatHtmlItem(item: ResumeSectionItem): string {
-  const meta = [item.subheading, formatDateRange(item)].filter(isPresent).join(" | ");
+function formatHtmlItem(item: RenderableSectionItem): string {
+  const meta = [formatEntrySubtitle(item), formatDateRange(item.dateRange)]
+    .filter(isPresent)
+    .join(" | ");
   const highlights = item.highlights?.length
-    ? `<ul>${item.highlights.map((highlight) => `<li>${escapeHtml(highlight)}</li>`).join("")}</ul>`
+    ? `<ul>${item.highlights.map((highlight) => `<li>${escapeHtml(highlight.text)}</li>`).join("")}</ul>`
     : "";
 
   return `<article>
-        <h3>${escapeHtml(item.heading)}</h3>
+        <h3>${escapeHtml(item.title)}</h3>
         ${meta ? `<p class="meta">${escapeHtml(meta)}</p>` : ""}
         ${item.summary ? `<p>${escapeHtml(item.summary)}</p>` : ""}
         ${highlights}
@@ -172,12 +191,49 @@ function formatContactLine(basics: ResumeBasics): string | undefined {
   return parts.length > 0 ? parts.join(" | ") : undefined;
 }
 
-function formatDateRange(item: ResumeSectionItem): string | undefined {
-  if (item.startDate && item.endDate) {
-    return `${item.startDate} - ${item.endDate}`;
+function formatDateRange(dateRange: ResumeDateRange | undefined): string | undefined {
+  if (!dateRange) {
+    return undefined;
   }
 
-  return item.startDate ?? item.endDate;
+  if (dateRange.label) {
+    return dateRange.label;
+  }
+
+  if (dateRange.start && dateRange.isCurrent) {
+    return `${dateRange.start} - Present`;
+  }
+
+  if (dateRange.start && dateRange.end) {
+    return `${dateRange.start} - ${dateRange.end}`;
+  }
+
+  return dateRange.start ?? dateRange.end;
+}
+
+interface RenderableSectionItem {
+  title: string;
+  subtitle?: string;
+  organization?: string;
+  dateRange?: ResumeDateRange;
+  summary?: string;
+  highlights?: Array<{ text: string }>;
+}
+
+function getSectionItems(section: ResumeSection): RenderableSectionItem[] {
+  if (section.kind === "skills") {
+    return section.groups.map((group) => ({
+      ...group,
+      title: group.name,
+      summary: group.skills.map((skill) => skill.name).join(", "),
+    }));
+  }
+
+  return section.items;
+}
+
+function formatEntrySubtitle(item: RenderableSectionItem): string | undefined {
+  return [item.subtitle, item.organization].filter(isPresent).join(" at ") || undefined;
 }
 
 function escapeHtml(value: string): string {
