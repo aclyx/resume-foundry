@@ -32,6 +32,13 @@ for Staff-level software engineering resumes that need ATS-visible text, subtle 
 a restrained PDF/print appearance without cards, badges, icons, gradients, or dark
 backgrounds.
 
+The Staff theme stays content-neutral: it does not invent Staff-level claims from ordinary
+resume entries. Staff-specific resumes should lead with scope and leverage before chronology,
+such as technical direction, architecture ownership, cross-team operating models, mentorship,
+incident/reliability accountability, and business-facing tradeoffs. The PDF fixture demonstrates
+this with a `Staff-Level Scope` section and `Selected Staff Impact` section ahead of supporting
+experience, education, and skills.
+
 ## Render Controls
 
 `renderHtml(resume, options)` accepts:
