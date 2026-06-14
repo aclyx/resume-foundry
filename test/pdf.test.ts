@@ -81,12 +81,12 @@ describe("PDF export", () => {
       { height: 792, width: 612 },
       { height: 792, width: 612 },
     ]);
-    expect(info.selectableText).toContain("PDF Fixture Person");
+    expect(info.selectableText).toContain("Jordan Rivera");
     expect(info.text).toContain("EXPERIENCE");
     expect(info.text).toContain("SKILLS");
-    expect(info.text).toContain("• Defined technical strategy across product, platform, and data workflows.");
-    expect(info.links).toContain("mailto:pdf@example.com");
-    expect(info.links).toContain("https://pdf.example.com/");
+    expect(info.text).toContain("• Defined platform strategy for multi-product engineering workflows.");
+    expect(info.links).toContain("mailto:jordan.rivera@example.com");
+    expect(info.links).toContain("https://jordan.example.com/");
   });
 });
 
