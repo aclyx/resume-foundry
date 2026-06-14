@@ -31,16 +31,20 @@ describe("Markdown/frontmatter parser", () => {
     expect(result.data.sections[0]).toMatchObject({
       id: "experience",
       kind: "experience",
-      items: [
-        {
+    });
+    expect(result.data.sections[0]).toHaveProperty(
+      "items",
+      expect.arrayContaining([
+        expect.objectContaining({
           id: "compact-systems-lead",
           dateRange: {
             start: "2023",
             isCurrent: true,
           },
-        },
-      ],
-    });
+        }),
+        expect.objectContaining({ id: "archive-tools-engineer" }),
+      ]),
+    );
     expect(result.json).toContain("\"schemaVersion\": \"resume-foundry/v1\"");
   });
 
