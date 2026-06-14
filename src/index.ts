@@ -1,4 +1,15 @@
 export {
+  ResumeMarkdownParseError,
+  exportResumeMarkdown,
+  normalizeResumeMarkdown,
+  parseResumeMarkdown,
+  parseResumeMarkdownResult,
+  parseResumeMarkdownToJson,
+} from "./markdown.js";
+
+export type { ResumeMarkdownIssue, ResumeMarkdownParseResult } from "./markdown.js";
+
+export {
   RESUME_DOCUMENT_SCHEMA_VERSION,
   ResumeBasicsSchema,
   ResumeDateRangeSchema,
