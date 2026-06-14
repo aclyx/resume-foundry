@@ -28,6 +28,8 @@
   },
   "files": [
     "dist",
+    "fixtures",
+    "schemas",
     "README.md",
     "LICENSE"
   ],
@@ -36,6 +38,7 @@
     "clean": "rm -rf dist coverage",
     "lint": "eslint . --max-warnings=0",
     "resume-foundry": "node dist/cli.js",
+    "schema": "pnpm build && node dist/scripts/generate-json-schema.js",
     "test": "vitest run",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
@@ -46,5 +49,8 @@
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.34.1",
     "vitest": "^3.2.3"
+  },
+  "dependencies": {
+    "zod": "^4.4.3"
   }
 }

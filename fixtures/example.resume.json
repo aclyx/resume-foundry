@@ -1,0 +1,162 @@
+{
+  "schemaVersion": "resume-foundry/v1",
+  "metadata": {
+    "title": "Example Person Resume",
+    "locale": "en-US",
+    "source": "canonical-json",
+    "density": "standard",
+    "tags": ["software", "product-engineering"]
+  },
+  "basics": {
+    "name": "Example Person",
+    "label": "Staff Software Engineer",
+    "email": "example@example.com",
+    "phone": "+1 555 0100",
+    "url": "https://example.com",
+    "location": "San Francisco, CA",
+    "summary": "Builds reliable product systems and applied AI tools from structured data.",
+    "profiles": [
+      {
+        "network": "GitHub",
+        "username": "example",
+        "url": "https://github.com/example"
+      }
+    ]
+  },
+  "sections": [
+    {
+      "id": "experience",
+      "kind": "experience",
+      "title": "Experience",
+      "priority": 100,
+      "density": "standard",
+      "tags": ["core"],
+      "items": [
+        {
+          "id": "example-systems-staff",
+          "title": "Example Systems",
+          "subtitle": "Staff Software Engineer",
+          "organization": "Example Systems",
+          "location": "San Francisco, CA",
+          "dateRange": {
+            "start": "2022-03",
+            "isCurrent": true
+          },
+          "summary": "Led data-heavy product engineering across authoring, validation, and rendering workflows.",
+          "priority": 100,
+          "tags": ["leadership", "data-modeling"],
+          "highlights": [
+            {
+              "text": "Designed typed content contracts that let rendering targets share one normalized resume source.",
+              "priority": 100,
+              "tags": ["schema"]
+            },
+            {
+              "text": "Reduced manual resume variant editing by centralizing section priority and density metadata.",
+              "priority": 90,
+              "tags": ["variants"]
+            }
+          ]
+        },
+        {
+          "id": "sample-labs-senior",
+          "title": "Sample Labs",
+          "subtitle": "Senior Software Engineer",
+          "organization": "Sample Labs",
+          "dateRange": {
+            "start": "2019",
+            "end": "2022"
+          },
+          "priority": 80,
+          "highlights": [
+            {
+              "text": "Built import pipelines for Markdown and JSON authoring sources."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "projects",
+      "kind": "projects",
+      "title": "Selected Projects",
+      "priority": 70,
+      "items": [
+        {
+          "id": "resume-foundry",
+          "title": "Resume Foundry",
+          "subtitle": "Typed resume rendering library",
+          "url": "https://github.com/example/resume-foundry",
+          "summary": "A presentation-independent data layer for resume rendering.",
+          "priority": 85,
+          "tags": ["typescript", "zod"]
+        }
+      ]
+    },
+    {
+      "id": "skills",
+      "kind": "skills",
+      "title": "Skills",
+      "priority": 60,
+      "density": "compact",
+      "groups": [
+        {
+          "id": "languages",
+          "name": "Languages",
+          "priority": 80,
+          "skills": [
+            {
+              "name": "TypeScript",
+              "level": "expert",
+              "priority": 100
+            },
+            {
+              "name": "Python",
+              "level": "advanced",
+              "priority": 80
+            }
+          ]
+        },
+        {
+          "id": "systems",
+          "name": "Systems",
+          "priority": 70,
+          "skills": [
+            {
+              "name": "Schema design"
+            },
+            {
+              "name": "Validation pipelines"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "variants": {
+    "one-page": {
+      "name": "One-page product engineering",
+      "pageTarget": "one-page",
+      "description": "Prioritizes recent experience and compact skills.",
+      "density": "compact",
+      "tags": ["product-engineering"],
+      "sectionOrder": ["experience", "projects", "skills"],
+      "sectionOverrides": {
+        "experience": {
+          "maxItems": 1,
+          "density": "compact",
+          "includeItems": ["example-systems-staff"]
+        },
+        "projects": {
+          "maxItems": 1
+        }
+      }
+    },
+    "two-page": {
+      "name": "Two-page full history",
+      "pageTarget": "two-page",
+      "density": "standard",
+      "sectionOrder": ["experience", "projects", "skills"]
+    }
+  }
+}
