@@ -23,6 +23,34 @@ This is an initial scaffold. The renderer API is intentionally small while the p
 
 The data layer is documented in [docs/data-layer.md](docs/data-layer.md).
 
+## Markdown Import
+
+Resume Foundry can parse Markdown resumes with YAML frontmatter into the canonical `ResumeDocument` schema. Markdown body content is parsed through a Markdown AST, while frontmatter and fenced `resume-foundry` metadata blocks are parsed as YAML.
+
+```ts
+import {
+  normalizeResumeMarkdown,
+  parseResumeMarkdownResult,
+  parseResumeMarkdownToJson,
+} from "resume-foundry";
+
+const result = parseResumeMarkdownResult(markdown);
+
+if (result.success) {
+  console.log(result.data);
+  console.log(result.json);
+  console.log(normalizeResumeMarkdown(markdown));
+}
+```
+
+The CLI exposes the same parser:
+
+```sh
+pnpm build
+pnpm resume-foundry parse fixtures/one-page.resume.md --format json
+pnpm resume-foundry parse fixtures/one-page.resume.md --format markdown
+```
+
 ## Development
 
 ```sh

@@ -126,6 +126,16 @@ Importers should accumulate adapter warnings separately from schema validation e
 For example, a JSON Resume field with no canonical equivalent should be a warning, while
 an invalid URL or duplicate entry id should be a validation error.
 
+The Markdown/frontmatter importer is implemented in [src/markdown.ts](../src/markdown.ts):
+
+- `parseResumeMarkdown(markdown)` returns a validated `ResumeDocument` or throws
+  `ResumeMarkdownParseError`.
+- `parseResumeMarkdownResult(markdown)` returns either the validated document plus JSON
+  and normalized Markdown outputs, or path-aware issues.
+- `parseResumeMarkdownToJson(markdown)` returns pretty-printed canonical JSON.
+- `normalizeResumeMarkdown(markdown)` parses and re-exports the Markdown in the normalized
+  authoring format.
+
 ## Export Strategy
 
 Exports should start from an already validated `ResumeDocument`.
