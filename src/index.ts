@@ -13,6 +13,10 @@ export { renderHtml } from "./html.js";
 
 export type { HtmlRenderOptions } from "./html.js";
 
+export { renderPdf } from "./pdf.js";
+
+export type { PdfRenderOptions } from "./pdf.js";
+
 export {
   baselineResumeTheme,
   normalizeResumeTheme,
@@ -84,6 +88,7 @@ export type {
 
 import { renderHtml } from "./html.js";
 import type { HtmlRenderOptions } from "./html.js";
+import { renderPdf } from "./pdf.js";
 import type { ResumeBasics, ResumeDateRange, ResumeDocument, ResumeSection } from "./schema.js";
 
 export type ResumeOutputFormat = "html" | "pdf" | "markdown";
@@ -102,7 +107,21 @@ export function renderResume(
     case "markdown":
       return renderMarkdown(resume);
     case "pdf":
-      throw new Error("PDF rendering is not implemented yet.");
+      throw new Error("PDF rendering is asynchronous. Use renderPdf or renderResumeAsync.");
+  }
+}
+
+export async function renderResumeAsync(
+  resume: ResumeDocument,
+  options: RenderOptions,
+): Promise<string | Uint8Array> {
+  switch (options.format) {
+    case "html":
+      return renderHtml(resume, toHtmlRenderOptions(options));
+    case "markdown":
+      return renderMarkdown(resume);
+    case "pdf":
+      return renderPdf(resume, toHtmlRenderOptions(options));
   }
 }
 

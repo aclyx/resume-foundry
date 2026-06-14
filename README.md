@@ -18,8 +18,8 @@ This is an initial scaffold. The renderer API is intentionally small while the p
 - print-first HTML presentation theme system
 - Markdown output
 - HTML output
-- PDF output placeholder for a later HTML-to-PDF pipeline
-- CLI entry point placeholder
+- PDF output through Playwright/Chromium
+- CLI commands for parsing, validation, and themed rendering
 
 The data layer is documented in [docs/data-layer.md](docs/data-layer.md).
 The presentation theme system is documented in [docs/theme-system.md](docs/theme-system.md).
@@ -50,6 +50,7 @@ The CLI exposes the same parser:
 pnpm build
 pnpm resume-foundry parse fixtures/one-page.resume.md --format json
 pnpm resume-foundry parse fixtures/one-page.resume.md --format markdown
+pnpm resume-foundry validate fixtures/one-page.resume.md
 ```
 
 ## HTML Themes
@@ -75,6 +76,35 @@ print CSS, page-size controls, and compact/standard/spacious density tokens.
 The Staff software engineering theme is dense, restrained, grayscale-forward, and optimized
 for ATS-visible print/PDF output.
 
+## PDF Export
+
+PDF export renders the selected HTML theme with Playwright using print media and CSS page
+sizes. Generated PDFs preserve selectable text and link annotations where Chromium can
+emit them.
+
+```sh
+resume-foundry render input.md --theme staff --format html
+resume-foundry render input.md --theme staff --format pdf
+resume-foundry validate input.md
+```
+
+Local fixture examples:
+
+```sh
+pnpm build
+pnpm resume-foundry render fixtures/one-page.resume.md --theme staff --format html
+pnpm resume-foundry render fixtures/one-page.resume.md --theme staff --format pdf --output resume.pdf
+```
+
+Install the Chromium browser once in new environments:
+
+```sh
+pnpm exec playwright install chromium
+```
+
+PDF tests prefer `pdftotext` when it is installed and fall back to `pdfjs-dist` text
+extraction when Poppler is unavailable.
+
 ## Development
 
 ```sh
@@ -90,9 +120,10 @@ pnpm schema
 ```sh
 pnpm build
 pnpm resume-foundry --help
+pnpm resume-foundry validate fixtures/one-page.resume.md
+pnpm resume-foundry render fixtures/one-page.resume.md --theme staff --format html
+pnpm resume-foundry render fixtures/one-page.resume.md --theme staff --format pdf --output resume.pdf
 ```
-
-The CLI currently prints help/version information and reserves the conversion workflow for the first implementation pass.
 
 ## License
 

@@ -139,6 +139,17 @@ exports[`HTML presentation themes > renders a dense Staff software engineering o
         margin-top: var(--rf-list-gap);
       }
 
+      .resume-highlights {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .resume-highlights li {
+        display: grid;
+        gap: 0.055in;
+        grid-template-columns: auto 1fr;
+      }
+
       .resume-header {
         display: grid;
         gap: var(--rf-contact-gap);
@@ -242,7 +253,7 @@ exports[`HTML presentation themes > renders a dense Staff software engineering o
 
           </header>
           <p>Led a small team building resume authoring and rendering infrastructure.</p>
-          <ul><li>Shipped a schema-first import path for Markdown-authored resumes.</li><li>Kept the one-page variant concise through section priority metadata.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Shipped a schema-first import path for Markdown-authored resumes.</span></li><li><span class="resume-bullet" aria-hidden="true">•</span><span>Kept the one-page variant concise through section priority metadata.</span></li></ul>
         </article>
       </section>
       <section id="skills" class="resume-section resume-section--skills" aria-labelledby="skills-heading" data-section-kind="skills" data-density="compact">
@@ -405,6 +416,17 @@ exports[`HTML presentation themes > renders a one-page baseline theme with print
         margin-top: var(--rf-list-gap);
       }
 
+      .resume-highlights {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .resume-highlights li {
+        display: grid;
+        gap: 0.055in;
+        grid-template-columns: auto 1fr;
+      }
+
       .resume-header {
         display: grid;
         gap: var(--rf-contact-gap);
@@ -508,7 +530,7 @@ exports[`HTML presentation themes > renders a one-page baseline theme with print
 
           </header>
           <p>Led a small team building resume authoring and rendering infrastructure.</p>
-          <ul><li>Shipped a schema-first import path for Markdown-authored resumes.</li><li>Kept the one-page variant concise through section priority metadata.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Shipped a schema-first import path for Markdown-authored resumes.</span></li><li><span class="resume-bullet" aria-hidden="true">•</span><span>Kept the one-page variant concise through section priority metadata.</span></li></ul>
         </article>
       </section>
       <section id="skills" class="resume-section resume-section--skills" aria-labelledby="skills-heading" data-section-kind="skills" data-density="compact">
@@ -671,6 +693,17 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
         margin-top: var(--rf-list-gap);
       }
 
+      .resume-highlights {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .resume-highlights li {
+        display: grid;
+        gap: 0.055in;
+        grid-template-columns: auto 1fr;
+      }
+
       .resume-header {
         display: grid;
         gap: var(--rf-contact-gap);
@@ -774,7 +807,7 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
 
           </header>
           <p>Led platform work across authoring, validation, and publishing workflows.</p>
-          <ul><li>Designed reusable content models for multi-format publishing.</li><li>Built validation reporting that mapped parser failures to source locations.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Designed reusable content models for multi-format publishing.</span></li><li><span class="resume-bullet" aria-hidden="true">•</span><span>Built validation reporting that mapped parser failures to source locations.</span></li></ul>
         </article>
         <article id="reliable-labs-senior" class="resume-entry">
           <header class="resume-entry-header">
@@ -785,7 +818,7 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
 
           </header>
 
-          <ul><li>Migrated legacy document templates to structured resume data.</li><li>Added import warnings for compatibility formats with lossy fields.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Migrated legacy document templates to structured resume data.</span></li><li><span class="resume-bullet" aria-hidden="true">•</span><span>Added import warnings for compatibility formats with lossy fields.</span></li></ul>
         </article>
       </section>
       <section id="projects" class="resume-section resume-section--projects" aria-labelledby="projects-heading" data-section-kind="projects">
@@ -800,7 +833,7 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
             <a class="resume-entry-link" href="https://github.com/aclyx/resume-foundry" aria-label="Resume Foundry link">github.com/aclyx/resume-foundry</a>
           </header>
           <p>Parses author-friendly resumes into a canonical typed schema.</p>
-          <ul><li>Supports structured metadata blocks for experience, education, projects, and skills.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Supports structured metadata blocks for experience, education, projects, and skills.</span></li></ul>
         </article>
         <article id="projects-parser-notes" class="resume-entry">
           <header class="resume-entry-header">
@@ -811,7 +844,7 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
 
           </header>
           <p>Documents the importer contract for author-friendly Markdown files.</p>
-          <ul><li>Shows that structured YAML blocks are optional for ordinary section items.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Shows that structured YAML blocks are optional for ordinary section items.</span></li></ul>
         </article>
       </section>
       <section id="education" class="resume-section resume-section--education" aria-labelledby="education-heading" data-section-kind="education">
@@ -826,7 +859,7 @@ exports[`HTML presentation themes > renders a restrained Staff software engineer
 
           </header>
 
-          <ul><li>Studied distributed systems and human-computer interaction.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Studied distributed systems and human-computer interaction.</span></li></ul>
         </article>
       </section>
       <section id="skills" class="resume-section resume-section--skills" aria-labelledby="skills-heading" data-section-kind="skills">
@@ -989,6 +1022,17 @@ exports[`HTML presentation themes > renders a two-page baseline theme with selec
         margin-top: var(--rf-list-gap);
       }
 
+      .resume-highlights {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .resume-highlights li {
+        display: grid;
+        gap: 0.055in;
+        grid-template-columns: auto 1fr;
+      }
+
       .resume-header {
         display: grid;
         gap: var(--rf-contact-gap);
@@ -1092,7 +1136,7 @@ exports[`HTML presentation themes > renders a two-page baseline theme with selec
 
           </header>
           <p>Led platform work across authoring, validation, and publishing workflows.</p>
-          <ul><li>Designed reusable content models for multi-format publishing.</li><li>Built validation reporting that mapped parser failures to source locations.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Designed reusable content models for multi-format publishing.</span></li><li><span class="resume-bullet" aria-hidden="true">•</span><span>Built validation reporting that mapped parser failures to source locations.</span></li></ul>
         </article>
         <article id="reliable-labs-senior" class="resume-entry">
           <header class="resume-entry-header">
@@ -1103,7 +1147,7 @@ exports[`HTML presentation themes > renders a two-page baseline theme with selec
 
           </header>
 
-          <ul><li>Migrated legacy document templates to structured resume data.</li><li>Added import warnings for compatibility formats with lossy fields.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Migrated legacy document templates to structured resume data.</span></li><li><span class="resume-bullet" aria-hidden="true">•</span><span>Added import warnings for compatibility formats with lossy fields.</span></li></ul>
         </article>
       </section>
       <section id="projects" class="resume-section resume-section--projects" aria-labelledby="projects-heading" data-section-kind="projects">
@@ -1118,7 +1162,7 @@ exports[`HTML presentation themes > renders a two-page baseline theme with selec
             <a class="resume-entry-link" href="https://github.com/aclyx/resume-foundry" aria-label="Resume Foundry link">github.com/aclyx/resume-foundry</a>
           </header>
           <p>Parses author-friendly resumes into a canonical typed schema.</p>
-          <ul><li>Supports structured metadata blocks for experience, education, projects, and skills.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Supports structured metadata blocks for experience, education, projects, and skills.</span></li></ul>
         </article>
         <article id="projects-parser-notes" class="resume-entry">
           <header class="resume-entry-header">
@@ -1129,7 +1173,7 @@ exports[`HTML presentation themes > renders a two-page baseline theme with selec
 
           </header>
           <p>Documents the importer contract for author-friendly Markdown files.</p>
-          <ul><li>Shows that structured YAML blocks are optional for ordinary section items.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Shows that structured YAML blocks are optional for ordinary section items.</span></li></ul>
         </article>
       </section>
       <section id="education" class="resume-section resume-section--education" aria-labelledby="education-heading" data-section-kind="education">
@@ -1144,7 +1188,7 @@ exports[`HTML presentation themes > renders a two-page baseline theme with selec
 
           </header>
 
-          <ul><li>Studied distributed systems and human-computer interaction.</li></ul>
+          <ul class="resume-highlights"><li><span class="resume-bullet" aria-hidden="true">•</span><span>Studied distributed systems and human-computer interaction.</span></li></ul>
         </article>
       </section>
       <section id="skills" class="resume-section resume-section--skills" aria-labelledby="skills-heading" data-section-kind="skills">

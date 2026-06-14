@@ -290,7 +290,7 @@ function renderEntry(entry: ResumeEntry): string {
             ${entry.url ? `<a class="resume-entry-link" href="${escapeAttribute(entry.url)}" aria-label="${escapeAttribute(`${entry.title} link`)}">${escapeHtml(formatUrlLabel(entry.url))}</a>` : ""}
           </header>
           ${entry.summary ? `<p>${escapeHtml(entry.summary)}</p>` : ""}
-          ${entry.highlights?.length ? `<ul>${entry.highlights.map((highlight) => `<li>${escapeHtml(highlight.text)}</li>`).join("")}</ul>` : ""}
+          ${entry.highlights?.length ? `<ul class="resume-highlights">${entry.highlights.map((highlight) => `<li><span class="resume-bullet" aria-hidden="true">•</span><span>${escapeHtml(highlight.text)}</span></li>`).join("")}</ul>` : ""}
         </article>`;
 }
 
@@ -472,6 +472,17 @@ function renderThemeCss({ theme, density, pageSize, pageTarget }: ResolvedHtmlOp
 
       li + li {
         margin-top: var(--rf-list-gap);
+      }
+
+      .resume-highlights {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .resume-highlights li {
+        display: grid;
+        gap: 0.055in;
+        grid-template-columns: auto 1fr;
       }
 
       .resume-header {
